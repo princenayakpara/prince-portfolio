@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /projects
+Allow: /about
+Allow: /contact
+Allow: /guestbook
+Allow: /uses
+
+Sitemap: https://princenayakpara.vercel.app/sitemap.xml
