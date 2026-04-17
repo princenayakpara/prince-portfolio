@@ -30,8 +30,8 @@ export function Layout() {
       <div className="announcement-bar">
         <span className="dot" />
         Live:{' '}
-        <a href="https://princenayakpara.vercel.app/" target="_blank" rel="noopener noreferrer">
-          princenayakpara.vercel.app
+        <a href="https://princenayakpara-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+          princenayakpara-portfolio.vercel.app
         </a>
       </div>
       <Nav />
