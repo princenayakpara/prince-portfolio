@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { ResumeContent } from './ResumeContent';
 
 type ResumeModalProps = {
   open: boolean;
@@ -30,18 +31,25 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
           <span className="modal-title" id="resume-modal-title">
             Resume — Prince Nayakpara
           </span>
-          <button type="button" className="modal-close" onClick={onClose} aria-label="Close">
-            &#10005;
-          </button>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <a
+              href="/certificates/resume.pdf"
+              download
+              className="proj-action-btn"
+              style={{ padding: '6px 12px', fontSize: '11px', background: 'var(--bg3)' }}
+            >
+              Download PDF ↓
+            </a>
+            <button type="button" className="modal-close" onClick={onClose} aria-label="Close">
+              &#10005;
+            </button>
+          </div>
         </div>
-        <div className="resume-viewer">
-          <iframe
-            src="/certificates/resume.pdf#toolbar=0"
-            className="resume-iframe"
-            title="Prince Nayakpara Resume"
-          />
+        <div className="resume-viewer" style={{ overflowY: 'auto', background: '#fff' }}>
+          <ResumeContent />
         </div>
       </div>
     </div>
   );
 }
+
