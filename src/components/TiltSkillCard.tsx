@@ -1,9 +1,9 @@
-import { useState, useRef, MouseEvent } from 'react';
+import { useState, useRef, type MouseEvent } from 'react';
 
 type TiltSkillCardProps = {
   name: string;
   desc: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 };
 
 export function TiltSkillCard({ name, desc, icon }: TiltSkillCardProps) {

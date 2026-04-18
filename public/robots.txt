@@ -6,4 +6,4 @@ Allow: /contact
 Allow: /guestbook
 Allow: /uses
 
-Sitemap: https://princenayakpara.vercel.app/sitemap.xml
+Sitemap: https://princenayakpara-portfolio.vercel.app/sitemap.xml
