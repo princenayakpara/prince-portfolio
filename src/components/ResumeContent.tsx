@@ -458,6 +458,13 @@ export function ResumeContent() {
             <li><a href="https://www.outskill.com/certificates/generative-ai" target="_blank" rel="noopener noreferrer">Generative AI Mastermind | Outskill</a></li>
             <li><a href="https://www.sololearn.com/certificates/course/en/Introduction-to-C++" target="_blank" rel="noopener noreferrer">Introduction to C++ | SoloLearn</a></li>
             <li><a href="https://www.sololearn.com/certificates/course/en/C-Intermediate" target="_blank" rel="noopener noreferrer">C Intermediate | SoloLearn</a></li>
+          <div className="resume-cg-name">Hackathon Certificates:</div>
+          <ul className="resume-cl">
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Big Code Challenge 2026</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Code Clash Elan &amp; nVision | IIT Hyderabad</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">K Hacks 3.0 | Anna University</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Odoo × Adani University Hackathon '26</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Doppelganger Build Sprint | OpenPools</a></li>
           </ul>
           <div className="resume-st">Honors</div>
           <ul className="resume-hl">
@@ -474,7 +481,7 @@ export function ResumeContent() {
               <span className="resume-proj-name">AlgoNexus</span>
               <span className="resume-proj-type">React · JavaScript · DSA | 2025</span>
             </div>
-            <div className="resume-proj-sub">Interactive DSA Learning & Visualization Platform</div>
+            <div className="resume-proj-sub">Interactive DSA Learning &amp; Visualization Platform</div>
             <div className="resume-proj-links">
               <a href="https://algo-nexus-omega.vercel.app/" target="_blank" rel="noopener noreferrer" className="resume-pl">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -496,7 +503,7 @@ export function ResumeContent() {
               <span className="resume-proj-name">AutoSense-X</span>
               <span className="resume-proj-type">Python · FastAPI · React · Flutter | 2026</span>
             </div>
-            <div className="resume-proj-sub">AI-Powered PC Guardian — Monitoring & Security</div>
+            <div className="resume-proj-sub">AI-Powered PC Guardian — System Monitoring, Optimization &amp; Security</div>
             <div className="resume-proj-links">
               <a href="https://github.com/princenayakpara/AutoSense-X" target="_blank" rel="noopener noreferrer" className="resume-pl">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -504,12 +511,75 @@ export function ResumeContent() {
               </a>
             </div>
             <ul className="resume-pb">
-              <li>Full-stack AI system guardian with Python/FastAPI backend and React frontend for real-time PC monitoring.</li>
-              <li>Integrated LSTM models for failure prediction and AI scanning.</li>
+              <li>Full-stack AI system guardian with Python/FastAPI backend, React frontend, and Flutter mobile app for real-time PC monitoring.</li>
+              <li>Integrated IsolationForest + LSTM models for failure prediction, AI malware scanning, voice assistant, and offline fallback mode.</li>
+              <li>20+ REST API endpoints — system health, process management, security, JWT + Google OAuth, and AI-generated PDF reports.</li>
             </ul>
           </div>
 
-          <div className="resume-st">Clone & Mini Projects</div>
+          <div className="resume-proj-item">
+            <div className="resume-proj-header">
+              <span className="resume-proj-name">NeuralArchitect</span>
+              <span className="resume-proj-type">Python · ML · Neural Networks | 2025</span>
+            </div>
+            <div className="resume-proj-sub">Neural Network Built from Scratch — No External ML Libraries</div>
+            <div className="resume-proj-links">
+              <a href="https://github.com/princenayakpara/NeuralArchitect" target="_blank" rel="noopener noreferrer" className="resume-pl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+            </div>
+            <ul className="resume-pb">
+              <li>Implemented forward/backpropagation, activation functions, and loss optimization entirely in pure Python with no ML libraries.</li>
+              <li>Integrated Adam optimizer and dropout regularization to prevent overfitting; deepened understanding of ML internals.</li>
+            </ul>
+          </div>
+
+          <div className="resume-proj-item">
+            <div className="resume-proj-header">
+              <span className="resume-proj-name">Deployflow</span>
+              <span className="resume-proj-type">DevOps · CI/CD · Docker | 2025</span>
+            </div>
+            <div className="resume-proj-sub">Automated Deployment Pipeline</div>
+            <div className="resume-proj-links">
+              <a href="https://client-omega-olive-79.vercel.app/" target="_blank" rel="noopener noreferrer" className="resume-pl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/princenayakpara/Deployflow" target="_blank" rel="noopener noreferrer" className="resume-pl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+            </div>
+            <ul className="resume-pb">
+              <li>Built automated CI/CD pipeline for build, test, and deployment; containerized apps with Docker for consistent environments.</li>
+              <li>Reduced deployment time and improved reliability through end-to-end automation across multiple deployment environments.</li>
+            </ul>
+          </div>
+
+          <div className="resume-proj-item">
+            <div className="resume-proj-header">
+              <span className="resume-proj-name">PINAtlas</span>
+              <span className="resume-proj-type">MERN · MongoDB Atlas | 2025</span>
+            </div>
+            <div className="resume-proj-sub">All India PIN Code Explorer — 154,000+ Post Offices</div>
+            <div className="resume-proj-links">
+              <a href="https://pin-atlas-vert.vercel.app/" target="_blank" rel="noopener noreferrer" className="resume-pl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/princenayakpara/PINAtlas" target="_blank" rel="noopener noreferrer" className="resume-pl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+            </div>
+            <ul className="resume-pb">
+              <li>Full-stack MERN app to explore 154,000+ Indian post offices with filtering, search, charts, and CSV export.</li>
+              <li>10 REST API endpoints with MongoDB Atlas indexing; cascading dropdowns, debounced search, and interactive bar/pie charts.</li>
+            </ul>
+          </div>
+
+          <div className="resume-st">Frontend | Clone &amp; Mini Projects</div>
           <div className="resume-clone-grid">
             <div>
               <div className="resume-cct">DSA / Visualizers</div>
@@ -517,6 +587,7 @@ export function ResumeContent() {
                 <li>Sorting Visualizer</li>
                 <li>Pathfinding Visualizer</li>
                 <li>BST Demo</li>
+                <li>Stack &amp; Queue</li>
               </ul>
             </div>
             <div>
@@ -525,6 +596,16 @@ export function ResumeContent() {
                 <li>Tic-Tac-Toe</li>
                 <li>Memory Card</li>
                 <li>Color Guess</li>
+                <li>Whack a Mole</li>
+              </ul>
+            </div>
+            <div>
+              <div className="resume-cct">API Projects</div>
+              <ul className="resume-ccl">
+                <li>Weather Dashboard</li>
+                <li>News Feed</li>
+                <li>Meals Explorer</li>
+                <li>Fake Store</li>
               </ul>
             </div>
           </div>
