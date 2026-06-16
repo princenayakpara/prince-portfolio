@@ -1,0 +1,300 @@
+/* ═══════════════════════════════════════════════════════
+   Timeline Hackathons (Monochrome / Black Theme)
+   ═══════════════════════════════════════════════════════ */
+
+.timeline-section {
+  padding: 100px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.timeline-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.timeline-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.timeline-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.05rem;
+}
+
+/* ── Timeline Container ─────────────────────────────── */
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Base vertical line (faded) */
+.timeline-line-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Progress vertical line (bright) */
+.timeline-line-progress {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, #fff 15%, #fff 85%, transparent 100%);
+  transform-origin: top;
+}
+
+/* Desktop layout (center line) */
+@media (min-width: 768px) {
+  .timeline-line-bg,
+  .timeline-line-progress {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile layout (left line) */
+@media (max-width: 767px) {
+  .timeline-line-bg,
+  .timeline-line-progress {
+    left: 24px;
+    transform: none;
+  }
+}
+
+/* ── Timeline Item ──────────────────────────────────── */
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .timeline-item {
+    flex-direction: column !important;
+    padding-left: 60px; /* Space for the line and node */
+  }
+}
+
+/* Desktop: Left / Right alternating */
+@media (min-width: 768px) {
+  .timeline-item.left {
+    justify-content: flex-end; /* Card goes to the left visually by manipulating flex, wait, it's easier to use specific widths */
+  }
+  
+  .timeline-item.right {
+    justify-content: flex-start;
+  }
+  
+  /* Actually, to position cards left/right: */
+  .timeline-item {
+    justify-content: center;
+  }
+}
+
+/* Card Wrapper */
+.timeline-card-wrap {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .timeline-card-wrap {
+    width: calc(50% - 40px);
+  }
+  
+  .timeline-item.left .timeline-card-wrap {
+    margin-right: auto;
+  }
+  
+  .timeline-item.right .timeline-card-wrap {
+    margin-left: auto;
+  }
+}
+
+/* ── Node (The dot on the line) ─────────────────────── */
+.timeline-node {
+  position: absolute;
+  top: 24px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .timeline-node {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-node {
+    left: 24px;
+    transform: translate(-50%, -50%);
+    top: 36px;
+  }
+}
+
+/* Node Variants */
+.node-1st {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.node-2nd {
+  width: 14px;
+  height: 14px;
+  background: #000;
+  border: 2px solid #fff;
+}
+
+.node-3rd {
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.node-default {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Card Styles ────────────────────────────────────── */
+.timeline-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.timeline-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-featured-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -30px;
+  background: #fff;
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 36px;
+  transform: rotate(45deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.timeline-rank-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.timeline-rank-badge.rank-1 {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.timeline-rank-badge.rank-2 {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.timeline-rank-badge.rank-3 {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.timeline-rank-badge.rank-default {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.timeline-hack-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.timeline-hack-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+}
+
+.timeline-hack-meta .org {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.timeline-hack-summary {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.timeline-tags-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.timeline-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.timeline-tech-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.timeline-tech {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}

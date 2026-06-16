@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { ScrollToHash } from './ScrollToHash';
+import BackgroundEffect from './BackgroundEffect';
 
 const titles: Record<string, string> = {
   '/': 'Prince Nayakpara – Creative Developer & Software Engineer',
@@ -26,6 +27,7 @@ export function Layout() {
 
   return (
     <>
+      <BackgroundEffect />
       <ScrollToHash />
       <div className="announcement-bar">
         <span className="dot" />

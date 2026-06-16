@@ -25,7 +25,7 @@ export const careerExperience: CareerExperience[] = [
     title: '12th Grade',
     detail:
       'Nirmal Science School – Morbi — Focused on Physics, Chemistry, and Mathematics. Built analytical thinking and clarity toward pursuing a career in engineering and technology.',
-    tag: '78%',
+    tag: '80%',
   },
   {
     id: 'be-cse',
@@ -33,6 +33,6 @@ export const careerExperience: CareerExperience[] = [
     title: 'B.E. – Computer Science',
     detail:
       'Swaminarayan University — Currently pursuing Computer Science Engineering with focus on Data Structures, Algorithms, Web Development, and real-world project building. Actively improving coding skills and working toward becoming a full-stack developer.',
-    tag: 'Ongoing',
+    tag: '9.33 CGPA',
   },
 ];

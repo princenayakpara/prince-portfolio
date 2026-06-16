@@ -1,0 +1,140 @@
+/* ═══════════════════════════════════════════════════════
+   BackgroundEffect — Pure Black (#000) Layered Background
+   ═══════════════════════════════════════════════════════ */
+
+/* Pure black base for html and body */
+html,
+body {
+  background: #000000 !important;
+}
+
+/* ── Wrapper ────────────────────────────────────────── */
+.bg-effect-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ── LAYER 1: Animated Dot Grid ─────────────────────── */
+.bg-dot-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0px 0px;
+  animation: gridShift 50s linear infinite;
+  pointer-events: none;
+}
+
+/* ── LAYER 1b: Radial Fade Overlay ──────────────────── */
+/* Fades the dot grid at edges so it blends into black   */
+.bg-grid-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, transparent 40%, #000000 100%);
+  pointer-events: none;
+}
+
+/* ── LAYER 2: Soft Monochrome Orbs ──────────────────── */
+.bg-monochrome-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-1 {
+  top: -10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #1a1a1a 0%, rgba(17, 17, 17, 0) 70%);
+  animation: orbPulse1 8s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  top: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #161616 0%, rgba(17, 17, 17, 0) 70%);
+  animation: orbPulse2 10s ease-in-out infinite alternate;
+}
+
+.orb-3 {
+  bottom: -15%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #1a1a1a 0%, rgba(17, 17, 17, 0) 70%);
+  animation: orbPulse3 12s ease-in-out infinite alternate;
+}
+
+.orb-4 {
+  bottom: -10%;
+  right: -10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #131313 0%, rgba(17, 17, 17, 0) 70%);
+  animation: orbPulse4 9s ease-in-out infinite alternate;
+}
+
+/* ── LAYER 3: Noise Texture Overlay ─────────────────── */
+.bg-noise-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ── LAYER 4: Vignette Contrast ─────────────────────── */
+.bg-contrast-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: radial-gradient(circle at center, transparent 30%, #000000 90%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Keyframe Animations
+   ═══════════════════════════════════════════════════════ */
+
+/* Dot grid: slow background-position scroll */
+@keyframes gridShift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 28px 28px;
+  }
+}
+
+/* Orb pulses: staggered timing for organic feel */
+@keyframes orbPulse1 {
+  0% { transform: scale(1); opacity: 0.04; }
+  100% { transform: scale(1.06); opacity: 0.08; }
+}
+
+@keyframes orbPulse2 {
+  0% { transform: scale(1); opacity: 0.05; }
+  100% { transform: scale(1.05); opacity: 0.07; }
+}
+
+@keyframes orbPulse3 {
+  0% { transform: scale(1); opacity: 0.04; }
+  100% { transform: scale(1.06); opacity: 0.08; }
+}
+
+@keyframes orbPulse4 {
+  0% { transform: scale(1); opacity: 0.05; }
+  100% { transform: scale(1.04); opacity: 0.07; }
+}

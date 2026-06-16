@@ -458,6 +458,7 @@ export function ResumeContent() {
             <li><a href="https://www.outskill.com/certificates/generative-ai" target="_blank" rel="noopener noreferrer">Generative AI Mastermind | Outskill</a></li>
             <li><a href="https://www.sololearn.com/certificates/course/en/Introduction-to-C++" target="_blank" rel="noopener noreferrer">Introduction to C++ | SoloLearn</a></li>
             <li><a href="https://www.sololearn.com/certificates/course/en/C-Intermediate" target="_blank" rel="noopener noreferrer">C Intermediate | SoloLearn</a></li>
+          </ul>
           <div className="resume-cg-name">Hackathon Certificates:</div>
           <ul className="resume-cl">
             <li><a href="#" target="_blank" rel="noopener noreferrer">Big Code Challenge 2026</a></li>

@@ -1,0 +1,272 @@
+/* ═══════════════════════════════════════════════════════
+   Hackathons Section (Monochrome / Black Theme)
+   ═══════════════════════════════════════════════════════ */
+
+.hackathons-section {
+  padding: 100px 0;
+  max-width: 1000px; /* Centered, slightly narrower than cert grid */
+  margin: 0 auto;
+  width: 90%;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.hackathons-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hackathons-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.hackathons-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.05rem;
+}
+
+/* ── Filter Chips ───────────────────────────────────── */
+.hack-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.hack-chip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.4);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hack-chip:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hack-chip.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.hack-sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+/* ── List / Accordion ───────────────────────────────── */
+.hack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Card ───────────────────────────────────────────── */
+.hack-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.hack-card.expanded {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Featured Ribbon */
+.hack-featured-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -30px;
+  background: #fff;
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 36px;
+  transform: rotate(45deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Header (Collapsed view) */
+.hack-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hack-card-header:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hack-info {
+  flex: 1;
+  min-width: 0;
+  padding-right: 20px;
+}
+
+.hack-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.hack-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 8px;
+}
+
+.hack-meta .org {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* Tags in header */
+.hack-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hack-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Rank Badge */
+.hack-rank-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* User Spec: 1st = white border + bold, 2nd = muted white, rest = gray */
+.hack-rank-badge.rank-1 {
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.hack-rank-badge.rank-2 {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hack-rank-badge.rank-default {
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Expand Icon */
+.hack-expand-icon {
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .hack-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hack-rank-badge {
+    align-self: flex-start;
+  }
+  .hack-expand-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+  .hack-info {
+    padding-right: 32px;
+  }
+}
+
+/* ── Expanded Content ───────────────────────────────── */
+.hack-expanded-content {
+  padding: 0 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hack-detail-group {
+  margin-bottom: 20px;
+}
+
+.hack-detail-group:last-child {
+  margin-bottom: 0;
+}
+
+.hack-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 8px;
+}
+
+.hack-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Tech Pills */
+.hack-tech-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hack-tech-pill {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

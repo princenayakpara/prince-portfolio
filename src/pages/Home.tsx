@@ -1,25 +1,18 @@
 import { useState, type ReactNode } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FigmaLogo } from '../components/FigmaLogo';
 import { HeroSocialLinks } from '../components/HeroSocialLinks';
+import AboutSection from '../components/AboutSection';
+import SkillsSection from '../components/SkillsSection';
 import { CareerSection } from '../components/CareerSection';
-import { ProjectBento } from '../components/ProjectBento';
 import { ResumeModal } from '../components/ResumeModal';
-import { TiltSkillCard } from '../components/TiltSkillCard';
-import { TechIcon } from '../components/TechIcon';
-import { projects, type Project } from '../data/projects';
-import { unstopCertificates } from '../data/unstopCertificates';
+import ProjectsSection from '../components/ProjectsSection';
+import VideoSection from '../components/VideoSection';
+import CertificatesSection from '../components/CertificatesSection';
+import TimelineHackathons from '../components/TimelineHackathons';
 import { useFadeUpRef } from '../hooks/useFadeUpRef';
 import { useTypewriter } from '../hooks/useTypewriter';
-
-function HomeProjectRow({ project }: { project: Project }) {
-  const ref = useFadeUpRef<HTMLDivElement>();
-  return (
-    <div ref={ref} className="project-item" data-cat={project.categories.join(' ')}>
-      <ProjectBento project={project} />
-    </div>
-  );
-}
 
 function SiteNavFadeLink({
   to,
@@ -38,161 +31,74 @@ function SiteNavFadeLink({
   );
 }
 
-const EMAIL = 'prince.nayakpara.cg@gmail.com';
-
 const typePhrases = ['Creative Software Engineer', 'Full-Stack Developer', 'Problem Solver'];
 
 export function Home() {
   const typed = useTypewriter(typePhrases);
   const [resumeOpen, setResumeOpen] = useState(false);
-  const [emailCopied, setEmailCopied] = useState(false);
-
-  const copyEmail = () => {
-    void navigator.clipboard.writeText(EMAIL).then(() => {
-      setEmailCopied(true);
-      window.setTimeout(() => setEmailCopied(false), 2000);
-    });
-  };
-
-  const previewProjects = projects.slice(0, 3);
 
   return (
     <>
-      <section className="hero">
+      <section className="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
         <div className="hero-inner">
           <div className="hero-top-row">
-            <div className="hero-text-col">
-              <div className="hero-eyebrow">
-                <span className="status-dot" />
-                Available for freelance &amp; full-time
+            <motion.div 
+              className="hero-text-col"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="hero-eyebrow" style={{ color: 'var(--accent)' }}>
+                Hello, I am a <span className="typewriter">{typed}</span>
               </div>
-              <h1 className="hero-heading">
-                Hello! I&apos;m <em>Prince</em> —<br />a creative software engineer.
+              <h1 className="hero-heading" style={{ fontSize: 'clamp(40px, 8vw, 80px)', lineHeight: 1.1, marginBottom: '20px' }}>
+                Prince Nayakpara
               </h1>
-              <div className="hero-sub">
-                <strong>Prince Nayakpara</strong> — <span className="typewriter">{typed}</span>
+              <h2 className="hero-sub" style={{ color: 'var(--text)', fontWeight: 600, fontSize: 'clamp(18px, 3vw, 24px)', marginBottom: '16px' }}>
+                Creative Full-Stack Developer & C++ Educator | <span style={{ color: 'var(--accent)' }}>Building fast, beautiful web experiences</span>
+              </h2>
+              <p className="hero-sub" style={{ color: 'var(--text2)', maxWidth: '600px', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px' }}>
+                I specialize in transforming complex problems into elegant, high-performance web applications using modern technologies. When I'm not crafting pixel-perfect interfaces, I'm passionate about teaching C++ and empowering the next generation of developers.
+              </p>
+
+              <div className="hero-email" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <a href="#projects" className="email-copy" style={{ background: 'var(--accent)', color: '#000', padding: '12px 24px', borderRadius: '30px', fontWeight: 600, border: 'none' }}>
+                  Explore Projects →
+                </a>
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="email-copy" style={{ background: 'transparent', color: 'var(--text)', border: '1px solid var(--border)', padding: '12px 24px', borderRadius: '30px', fontWeight: 500 }}>
+                  Download Resume
+                </a>
               </div>
-              <div className="hero-email">
-                <button type="button" className="email-copy" onClick={copyEmail}>
-                  <span>{'\u2709'}</span>
-                  <span style={{ opacity: emailCopied ? 0 : 1 }}>{EMAIL}</span>
-                  <span className={`copy-badge ${emailCopied ? 'show' : ''}`}>Copied!</span>
-                </button>
+              <div style={{ marginTop: '24px' }}>
+                <HeroSocialLinks variant="mobile" />
               </div>
-              <HeroSocialLinks variant="mobile" />
-            </div>
-            <div className="hero-photo-col">
+            </motion.div>
+            
+            <motion.div 
+              className="hero-photo-col"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
               <div className="hero-photo-wrap">
                 <div className="hero-photo-placeholder">
                   <img src="/images/prince.png" alt="Prince Nayakpara" width={220} height={270} />
                 </div>
                 <HeroSocialLinks variant="desktop" />
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="hero-cards">
-            <Link to="/contact" className="hero-card">
-              <div className="hcard-label">Let&apos;s Build Together</div>
-              <div className="hcard-sub">Clear communication, fast iterations, no surprises</div>
-              <span className="hcard-arrow">→</span>
-            </Link>
-            <Link to="/projects" className="hero-card">
-              <div className="hcard-label">What You Get</div>
-              <div className="hcard-sub">Clean code, pixel-perfect UI, deployed &amp; scaling</div>
-              <span className="hcard-arrow">→</span>
-            </Link>
-          </div>
-
         </div>
       </section>
+
+      <AboutSection />
 
       <CareerSection />
+      <SkillsSection />
 
-      <section className="skills-section" id="skills">
-        <div className="section-inner">
-          <div className="section-header">
-            <span className="section-eyebrow">EXPERTISE</span>
-            <h2 className="section-title">Skills &amp; technologies</h2>
-          </div>
-          <div className="skills-interactive-grid">
-            
-            <div className="skill-cat-container">
-              <h3 className="skill-cat-title">Frontend</h3>
-              <p className="skill-cat-desc">Building responsive, interactive UIs with modern web frameworks</p>
-              <div className="skill-cards-grid">
-                {[
-                  ['React', 'UI Framework'],
-                  ['Next.js', 'Meta Framework'],
-                  ['TypeScript', 'Type Safety'],
-                  ['Tailwind CSS', 'Utility Design'],
-                  ['Framer Motion', 'Animations'],
-                  ['Zustand', 'State Management'],
-                  ['Zod', 'Schema Validation'],
-                  ['HTML5', 'Markup Language']
-                ].map(([name, desc]) => (
-                  <TiltSkillCard key={name} name={name} desc={desc} icon={<TechIcon type={name} />} />
-                ))}
-              </div>
-            </div>
+      <ProjectsSection />
 
-            <div className="skill-cat-container">
-              <h3 className="skill-cat-title">Backend</h3>
-              <p className="skill-cat-desc">Architecting robust, scalable server-side systems and databases</p>
-              <div className="skill-cards-grid">
-                {[
-                  ['Node.js', 'Runtime Env'],
-                  ['Express', 'Web Server'],
-                  ['MongoDB', 'NoSQL DB'],
-                  ['PostgreSQL', 'Relational DB'],
-                  ['REST APIs', 'Architecture'],
-                  ['Redis', 'In-Memory DB'],
-                  ['Firebase', 'BaaS'],
-                  ['Sanity CMS', 'Headless CMS']
-                ].map(([name, desc]) => (
-                  <TiltSkillCard key={name} name={name} desc={desc} icon={<TechIcon type={name} />} />
-                ))}
-              </div>
-            </div>
-
-            <div className="skill-cat-container">
-              <h3 className="skill-cat-title">Tools &amp; DevOps</h3>
-              <p className="skill-cat-desc">Streamlining development, version control, and deployments</p>
-              <div className="skill-cards-grid">
-                {[
-                  ['Git', 'Version Control'],
-                  ['GitHub', 'Source Repository'],
-                  ['Docker', 'Containerization'],
-                  ['Vercel', 'Edge Hosting'],
-                  ['Figma', 'Prototyping'],
-                  ['Turborepo', 'Monorepo Builds'],
-                  ['Postman', 'API Testing'],
-                  ['Linux', 'Operating System']
-                ].map(([name, desc]) => (
-                  <TiltSkillCard key={name} name={name} desc={desc} icon={<TechIcon type={name} />} />
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section className="projects-section">
-        <div className="section-inner">
-          <div className="section-header">
-            <span className="section-eyebrow">CASE STUDIES</span>
-            <h2 className="section-title">Curated work</h2>
-          </div>
-          <div className="project-list">
-            {previewProjects.map((p) => (
-              <HomeProjectRow key={p.id} project={p} />
-            ))}
-          </div>
-          <Link to="/projects" className="see-more-link">
-            See more projects →
-          </Link>
-        </div>
-      </section>
+      <VideoSection />
 
       <section className="figma-section" id="figma">
         <div className="section-inner">
@@ -243,163 +149,8 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      <section className="certs-section" id="certificates">
-        <div className="section-inner">
-          <div className="section-header">
-            <span className="section-eyebrow">CREDENTIALS</span>
-            <h2 className="section-title">Certifications</h2>
-            <p className="section-sub cert-section-sub">
-              Each credential includes a preview and a link to verify on the issuer&apos;s site or download the PDF.
-            </p>
-          </div>
-          <div className="certs-grid">
-            <div className="cert-card">
-              <div className="cert-body">
-                <div className="cert-title">Python</div>
-                <div className="cert-issuer">Kaggle · Dec 19, 2025</div>
-                <div className="cert-desc">Certificate of completion — Kaggle Learn.</div>
-                <div className="cert-thumb-card">
-                  <img
-                    className="cert-thumb-img"
-                    src="/certificates/kaggle-python.png"
-                    alt="Kaggle Python certificate"
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                </div>
-                <a
-                  href="https://www.kaggle.com/learn/python"
-                  className="cert-verify-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Verify on Kaggle
-                </a>
-              </div>
-            </div>
-            <div className="cert-card">
-              <div className="cert-body">
-                <div className="cert-title">C Intermediate</div>
-                <div className="cert-issuer">Sololearn · 06 Mar 2026</div>
-                <div className="cert-desc">Certificate ID CC-67EAJ75N</div>
-                <div className="cert-thumb-card">
-                  <img
-                    className="cert-thumb-img"
-                    src="/certificates/sololearn-c-intermediate.png"
-                    alt="Sololearn C Intermediate certificate"
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                </div>
-                <a
-                  href="https://www.sololearn.com/certificates/CC-67EAJ75N/"
-                  className="cert-verify-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Verify on Sololearn
-                </a>
-              </div>
-            </div>
-            <div className="cert-card">
-              <div className="cert-body">
-                <div className="cert-title">Introduction to C++</div>
-                <div className="cert-issuer">Sololearn · 09 Mar 2026</div>
-                <div className="cert-desc">Certificate ID CC-0Y95DAQG</div>
-                <div className="cert-thumb-card">
-                  <img
-                    className="cert-thumb-img"
-                    src="/certificates/sololearn-cpp-intro.png"
-                    alt="Sololearn Introduction to C++ certificate"
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                </div>
-                <a
-                  href="https://www.sololearn.com/certificates/CC-0Y95DAQG/"
-                  className="cert-verify-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Verify on Sololearn
-                </a>
-              </div>
-            </div>
-            <div className="cert-card">
-              <div className="cert-body">
-                <div className="cert-title">Generative AI Mastermind</div>
-                <div className="cert-issuer">Outskill · Course certificate</div>
-                <div className="cert-desc">
-                  Certificate of completion — Generative AI Mastermind.
-                </div>
-                <div className="cert-thumb-card">
-                  <img
-                    className="cert-thumb-img"
-                    src="/certificates/generative-ai.png"
-                    alt="Generative AI Certificate"
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                </div>
-                <a
-                  href="/certificates/generative-ai.png"
-                  className="cert-verify-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View full certificate
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="hackathon-section" id="hackathons">
-        <div className="section-inner">
-          <div className="section-header">
-            <span className="section-eyebrow">COMPETITIONS</span>
-            <h2 className="section-title">Hackathons &amp; Challenges</h2>
-          </div>
-          <div className="hack-certs-grid">
-            {unstopCertificates.map((c) => (
-              <div className="cert-card" key={c.id}>
-                <div className="cert-body">
-                  <div className="cert-title">{c.title}</div>
-                  <div className="cert-issuer">Unstop · Engineering Challenge</div>
-                  <div className="cert-thumb-card">
-                    <img
-                      className="cert-thumb-img"
-                      src={c.image}
-                      alt={`${c.title} certificate`}
-                      width={640}
-                      height={400}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="hack-qa-item">
-                    <strong>Problem:</strong> {c.problem}
-                  </div>
-                  <div className="hack-qa-item">
-                    <strong>Solution:</strong> {c.solution}
-                  </div>
-                  <div className="hack-qa-item">
-                    <strong>Outcome:</strong> {c.outcome}
-                  </div>
-                  <a href={c.url} className="cert-verify-btn" target="_blank" rel="noopener noreferrer">
-                    Verify Link
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CertificatesSection />
+      <TimelineHackathons />
 
       <section className="pow-section" id="proof-of-work">
         <div className="section-inner">
